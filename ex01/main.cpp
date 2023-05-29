@@ -5,34 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 15:58:55 by msharifi          #+#    #+#             */
-/*   Updated: 2023/05/29 14:38:28 by msharifi         ###   ########.fr       */
+/*   Created: 2023/05/29 14:16:22 by msharifi          #+#    #+#             */
+/*   Updated: 2023/05/29 17:18:36 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Easyfind.hpp"
+#include "Span.hpp"
 
 int	main(void)
 {
-	std::list<int>				list;
-	std::list<int>::iterator	it;
+	Span	Shanley(5);
 
-	list.push_back(10);
-	list.push_back(0);
-	list.push_back(40);
-	list.push_back(5);
-	list.push_back(-24);
-	list.push_back(6);
+	Shanley.addNumber(-5);
+	Shanley.addNumber(-1);
+	Shanley.addNumber(-4);
+	Shanley.addNumber(-34);
+	Shanley.addNumber(-12);
 
-	try
-	{
-		it = easyfind(list, -24);
-		std::cout << *it << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-		return (1);
-	}
+	Shanley.printList();
+	
+	// Operator =
+
+	// Span	Manu;
+	// Manu = Shanley;
+	// Manu.printList();
+
+	Shanley.longestSpan();
+	std::cout << Shanley.shortestSpan() << std::endl;
 	return (0);
 }
