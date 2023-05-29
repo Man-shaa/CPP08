@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:09:24 by msharifi          #+#    #+#             */
-/*   Updated: 2023/05/29 17:15:08 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/05/29 17:23:49 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,12 @@ void	Span::addNumber(int n)
 int		Span::shortestSpan()
 {
 	_list.sort();
-	printList();
 	std::list<int>::iterator itNext = _list.begin();
 	itNext++;
 
 	int	diffSave = 2147483647;
 	for (std::list<int>::iterator it = _list.begin(); it != _list.end(); it++)
 	{
-		std::cout << *it << " | " << *itNext << std::endl;
 		if (abs(*itNext - *it) < diffSave)
 			diffSave = abs(*itNext - *it);
 		itNext++;
@@ -78,14 +76,7 @@ int		Span::shortestSpan()
 int		Span::longestSpan()
 {
 	_list.sort();
-	int	biggest = _list.back();
-	int	smallest = _list.front();
-	std::cout << "The biggest differentiel is [" << biggest - smallest << "] between "
-	<< biggest << " and " << smallest << std::endl;
-	std::cout << " biggest : " << biggest << std::endl;
-	std::cout << " smallest : " << smallest << std::endl;
-	std::cout << " diff : " << biggest - smallest << std::endl;
-	return (biggest - smallest);
+	return (_list.back() - _list.front());
 }
 
 void	Span::printList()
